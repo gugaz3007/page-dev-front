@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamento Cabelereira</title>
+    <link rel="stylesheet" href="agenda.css" />
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1>Agendar Horário</h1>
+        
+        <!-- Seção de Data -->
+        <h2>Selecione uma data:</h2>
+        <div class="options" id="dateOptions">
+            <button class="date-btn">04/10</button>
+            <button class="date-btn">04/11</button>
+            <button class="date-btn">04/12</button>
+        </div>
+
+        <!-- Seção de Horário -->
+        <h2>Selecione um horário:</h2>
+        <div class="options" id="timeOptions">
+            <button class="time-btn">10:00</button>
+            <button class="time-btn">11:00</button>
+            <button class="time-btn">12:00</button>
+            <button class="time-btn">14:00</button>
+            <button class="time-btn">15:00</button>
+            <button class="time-btn">17:00</button>
+        </div>
+
+        <!-- Seção de Serviços -->
+        <h2>Nossos Serviços</h2>
+        <div class="services-scroll" id="serviceList">
+            <div class="card" data-service="Corte Feminino - R$ 40,00">
+                <img src="fotos-pagina2/cabelo22.jpg" alt="Corte Feminino">
+                <h3>Corte Feminino</h3>
+                <p>R$ 40,00</p>
+                <button class="select-btn">Selecionar</button>
+            </div>
+            <div class="card" data-service="Escova - R$ 35,00">
+                <img src="fotos-pagina2/Cortes-de-cabelo-curto-da-moda-900x900.png"Escova">
+                <h3>Escova</h3>
+                <p>R$ 35,00</p>
+                <button class="select-btn">Selecionar</button>
+            </div>
+            <div class="card" data-service="Hidratação - R$ 60,00">
+                <img src="fotos-pagina2/corte-de-cabelo-.jpg" alt="Hidratação">
+                <h3>Hidratação</h3>
+                <p>R$ 60,00</p>
+                <button class="select-btn">Selecionar</button>
+            </div>
+            <div class="card" data-service="Modelagem - R$ 45,00">
+                <img src="fotos-pagina2/corte-de-cabelo1.jpg" alt="Modelagem">
+                <h3>Modelagem</h3>
+                <p>R$ 45,00</p>
+                <button class="select-btn">Selecionar</button>
+            </div>
+            <div class="card" data-service="Penteado - R$ 80,00">
+                <img src="fotos-pagina2/peteado.jpeg" alt="Penteado">
+                <h3>Penteado</h3>
+                <p>R$ 80,00</p>
+                <button class="select-btn">Selecionar</button>
+        </div> 
+        <div class="card" data-service="Maquiagem - R$ 100,00">
+            <img src="fotos-pagina2/maquiagemfoto.jpg" alt="Maquiagem">
+            <h3>Maquiagem</h3>
+            <p>R$ 100,00</p>
+            <button class="select-btn">Selecionar</button>
+        </div>
+        <div class="card" data-service="Manicure - R$ 25,00">
+            <img src="fotos-pagina2/manicure.jpeg" alt="Manicure">
+            <h3>Manicure</h3>
+            <p>R$ 25,00</p>
+            <button class="select-btn">Selecionar</button>
+            </div>
+        </div>
+            
+
+        <!-- Botão de confirmação -->
+        <button class="confirm" id="confirmBtn">Confirmar Agendamento</button>
+        <div class="rodape">
+            <p class="texto-rodape"><i>&copy;2024 santaela beauty Todos direitos reservados</i> </p>
+        </div>
+    </div>
+
+    <script>
+        // Armazenar dados de seleção
+        let selectedDate = "";
+        let selectedTime = "";
+        let selectedServices = [];
+    
+        // Função para selecionar data
+        const dateButtons = document.querySelectorAll(".date-btn");
+        dateButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                selectedDate = button.textContent;
+    
+                // Remove active de todos os botões e adiciona no clicado
+                dateButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+            });
+        });
+    
+        // Função para selecionar horário
+        const timeButtons = document.querySelectorAll(".time-btn");
+        timeButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                selectedTime = button.textContent;
+    
+                // Remove active de todos os botões e adiciona no clicado
+                timeButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+            });
+        });
+    
+        // Função para selecionar serviços
+        const serviceButtons = document.querySelectorAll(".select-btn");
+        serviceButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const card = button.parentElement;
+                const service = card.getAttribute("data-service");
+                if (card.classList.contains("selected")) {
+                    card.classList.remove("selected");
+                    selectedServices = selectedServices.filter(item => item !== service);
+                } else {
+                    card.classList.add("selected");
+                    selectedServices.push(service);
+                }
+            });
+        });
+    
+        // Função de confirmação do agendamento
+        const confirmBtn = document.getElementById("confirmBtn");
+        confirmBtn.addEventListener("click", () => {
+            if (!selectedDate || !selectedTime || selectedServices.length === 0) {
+                alert("Por favor, selecione uma data, horário e serviço.");
+                return;
+            }
+
+            // Formata a mensagem para o WhatsApp
+            const message = `Olá, gostaria de agendar o seguinte:
+Data: ${selectedDate}
+Horário: ${selectedTime}
+Serviços: ${selectedServices.join(", ")}`;
+
+            // Codifica a mensagem para a URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Substitua pelo número de telefone correto
+            const phoneNumber = "+5513997905167";
+
+            // Abre o WhatsApp com a mensagem formatada
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+        });
+    </script>
+</body>
+
+</html>
+

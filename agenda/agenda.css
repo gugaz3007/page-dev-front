@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fefefe;
+    color: #222;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background: url(https://i.pinimg.com/originals/77/f6/fa/77f6fa8f2fed92c7e2bce7e7763130a4.gif) no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1, h2 {
+    color: #111;
+  }
+  
+  .options {
+    margin: 10px 0 20px;
+  }
+  
+  .options button {
+    background: #e6007e;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 3px solid #d40078;
+    box-shadow: 0 0 10px #d40078;
+  }
+  
+  
+  .options button.active {
+    background: #7904af;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 0 12px #a0008e;
+  }
+  
+  
+
+  
+  .services-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
+  .services-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .services-scroll::-webkit-scrollbar-thumb {
+    background-color: #d40078;
+    border-radius: 6px;
+  }
+  
+  .card {
+    flex: 0 0 200px;
+    background: #fafafa;
+    border-radius: 13px;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.3);
+    scroll-snap-align: start;
+    overflow: hidden;
+    padding-bottom: 10px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+    box-shadow: #131213 3px 0px 5px 0px;
+    
+  }
+  
+  .card h3, .card p {
+    margin: 10px 0;
+  }
+  
+  .select-btn {
+    background-color: #d40078;
+    box-shadow: 0 0 8px #181617;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  
+  .card.selected {
+    border: 3px solid #d40078;
+    box-shadow: 0 0 15px #ff05d5;
+    transform: scale(1.0);
+   ;}
+  
+  #confirmBtn {
+    background-color: #d40078;
+    box-shadow: 0 0 8px #181617;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+  .rodape {
+    color: rgb(14, 13, 13);
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+    font-size: 14px;
+    /* Ajuste o tamanho da fonte para dispositivos menores */
+    }
+
+  

@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url(https://i.pinimg.com/originals/77/f6/fa/77f6fa8f2fed92c7e2bce7e7763130a4.gif) no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+.container {
+    padding: 15px;
+    width: 70%;
+    /* Reduz a largura do formulário */
+}
+
+.logo {
+    position: absolute;
+    /* Posiciona a imagem sobre a div */
+    top: -50px;
+    /* Ajuste a posição vertical conforme necessário */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translateX(-50%);
+    /* Garante que a imagem fique centralizada */
+    width: 200px;
+    /* Define um tamanho padrão para a imagem */
+    z-index: 1;
+    /* Garante que a imagem fique acima da div */
+    pointer-events: none;
+    /* Impede que a imagem bloqueie cliques nos elementos abaixo */
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 120px;
+        /* Reduz o tamanho da imagem em telas menores */
+        top: -30px;
+        /* Ajusta a posição para dispositivos móveis */
+    }
+}
+
+icon {
+    transition: transform 0.3s ease;
+    /* Animação ao passar o mouse */
+
+}
+
+.social-icons {
+    position: absolute;
+    cursor: pointer;
+    /* Altera o cursor para indicar que é clicável */
+
+
+}
+
+.icon {
+    width: 50px;
+    /* Ajusta o tamanho da logo */
+    margin-top: 400px;
+    /* Muda a posição para baixo */
+    left: 50%;
+    /* Centraliza horizontalmente */
+
+}
+
+.rodape {
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+    font-size: 14px;
+    /* Ajuste o tamanho da fonte para dispositivos menores */
+
+
+}
+
+.texto-rodape {
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    margin-top: 10px;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f9;
+    display: flex;
+    /* Usando flexbox */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    height: 100vh;
+    /* Faz o body ocupar toda a altura da tela */
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    /* Ajusta o tamanho do formulário em dispositivos menores */
+    max-width: 400px;
+    /* Limita a largura máxima em telas maiores */
+    text-align: center;
+    /* Centraliza o conteúdo do formulário */
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
